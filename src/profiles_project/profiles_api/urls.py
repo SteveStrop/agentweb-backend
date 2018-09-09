@@ -10,5 +10,6 @@ router.register('feed', views.UserProfileFeedViewSet)
 
 urlpatterns = [
     url(r'^hello-view/', views.HelloApiView.as_view()),  # points to an APIView
+    url(r'^radioDestinations/', views.RadioDestinationsApiView.as_view()),  # points to an APIView
     url(r'', include(router.urls)),  # points to all viewsets
 ]
