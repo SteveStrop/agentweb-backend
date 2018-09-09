@@ -59,6 +59,36 @@ class HelloApiView(APIView):
         return Response({'method': 'delete'})
 
 
+class RadioDestinationsApiView(APIView):
+    """Gets list of compatible folders from local parent_folder folder."""
+
+    serializer_class = serializers.RadioSerializer
+
+    def get(self, request, format=None):
+        """Returns a list of APIView features."""
+
+        an_apiview = [
+            'Uses HTTP methods as function (get, post, patch, put, delete)',
+            'It is similar to a traditional Django view',
+            'Gives you the most control over your logic',
+            'Is mapped manually to URLs'
+        ]
+
+        return Response({'message': 'Hello!', 'an_apiview': an_apiview})
+
+    def post(self, request):
+        """Create a hello message with our name."""
+
+        serializer = serializers.HelloSerializer(data=request.data)
+
+        if serializer.is_valid():
+            name = serializer.data.get('name')
+            message = 'Hello {0}!'.format(name)
+            return Response({'message': message})
+        else:
+            return Response(
+                serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class HelloViewSet(viewsets.ViewSet):
     """Test API ViewSet"""
 
