@@ -8,6 +8,12 @@ class HelloSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=10)
 
 
+class RadioSerializer(serializers.Serializer):
+    """Serializes a name field for testing out APIView"""
+
+    name = serializers.CharField(max_length=10)
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     """A serializer for our user profile objects."""
 
