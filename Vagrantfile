@@ -34,6 +34,7 @@ Vagrant.configure("2") do |config|
         echo "PROJECT_HOME=/vagrant" >> /home/vagrant/.bashrc
         echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/vagrant/.bashrc
     fi
+    echo"hello steve"
   SHELL
 
 end

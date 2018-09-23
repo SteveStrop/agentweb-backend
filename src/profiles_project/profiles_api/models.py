@@ -32,7 +32,7 @@ class UserProfileManager(BaseUserManager):
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """
-    Represents a user profile inside out system. Stores all user account
+    Represents a user profile inside our system. Stores all user account
     related data, such as 'email address' and 'name'.
     """
 
@@ -60,16 +60,3 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         """Django uses this when it needs to convert the object to text."""
 
         return self.email
-
-
-class ProfileFeedItem(models.Model):
-    """Profile status update."""
-
-    user_profile = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
-    status_text = models.CharField(max_length=255)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        """Return the model as a string."""
-
-        return self.status_text
